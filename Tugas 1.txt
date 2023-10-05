@@ -1,0 +1,26 @@
+//Masuk MariaDB Lewat CMD
+mysql -u root -php
+
+//Menampilkan Semua DB
+SHOW DATABASES;
+
+//Membuat Database
+CREATE DATABASE dbpegawai;
+
+//Masuk Kedalam dbpegawai
+USE dbpegawai;
+
+//Membuat Tabel
+CREATE TABLE pegawai(
+id INT PRIMARY KEY,
+nip CHAR(5) NOT NULL UNIQUE,
+nama VARCHAR(30) NOT NULL UNIQUE,
+gender ENUM('L','P') NOT NULL,
+umur INT NOT NULL,
+berat_badan FLOAT);
+
+//Menampilkan Tabel pegawai
+SHOW TABLES;
+
+//Melihat Descripsi Tabel
+DESC pegawai;
