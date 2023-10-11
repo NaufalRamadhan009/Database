@@ -1,11 +1,11 @@
 // Isi data table pelanggan minimal 6 data
 INSERT INTO `pelanggan` (`id`, `kode`, `nama`, `jenis_kelamin`, `tmp_lahir`, `tgl_lahir`, `email`, `kartu_id`) 
-VALUES (NULL, 'c005', 'Nopal', 'L', 'Bandung', '2003-04-11', 'nopal@gmail.com', ''), 
-(NULL, 'c006', 'Rivaldi', 'L', 'Bandung', '1995-12-10', 'rivaldi@gmail.com', ''), 
-(NULL, 'c007', 'Vivi', 'P', 'Yogya', '1999-22-11', 'vivi@gmail.com', ''), 
-(NULL, 'c008', 'Joko', 'L', 'Banjar', '2001-16-09', 'joko@gmail.com', ''), 
-(NULL, 'c009', 'Robi', 'L', 'Bandung', '2002-10-10', 'robi@gmail.com', ''), 
-(NULL, 'c0010', 'Putri', 'P', 'Cianjur', '2000-10-12', 'putri@gmail.com', ''
+VALUES (NULL, 'c001', 'Nopal', 'L', 'Bandung', '2003-04-11', 'nopal@gmail.com', ''), 
+(NULL, 'c002', 'Rivaldi', 'L', 'Bandung', '1995-12-10', 'rivaldi@gmail.com', ''), 
+(NULL, 'c003', 'Vivi', 'P', 'Yogya', '1999-22-11', 'vivi@gmail.com', ''), 
+(NULL, 'c004', 'Joko', 'L', 'Banjar', '2001-16-09', 'joko@gmail.com', ''), 
+(NULL, 'c005', 'Robi', 'L', 'Bandung', '2002-10-10', 'robi@gmail.com', ''), 
+(NULL, 'c006', 'Putri', 'P', 'Cianjur', '2000-10-12', 'putri@gmail.com', ''
 );
 
 

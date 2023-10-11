@@ -1,0 +1,23 @@
+//3.2
+1. SELECT COUNT(tgl_lahir) FROM pelanggan WHERE year(tgl_lahir)=1988;
+2. SELECT COUNT(jk) FROM pelanggan WHERE tmp_lahir ='jakarta' and jk='p';
+3. SELECT sum(stok) as total_stok from produk where harga_jual < 700000;
+4. SELECT COUNT(*) AS jumlah_ produk WHERE nama LIKE 'K%'
+5. SELECT AVG(harga_jual) as harga_ratarata from produk where harga_jual > 1000000;
+6. SELECT MAX(stok) as jumlah_stok from produk;
+7. SELECT COUNT(stok) as stok_kurang FROM produk where stok < min_stok;
+8. SELECT SUM(stok) as asset from produk;
+
+//3.3
+1. SELECT id, nama, stok, case when stok > min_stok THEN 'aman' ELSE 'segera belanja'  end as Info from produk;
+2. SELECT id, nama, umur, CASE WHEN umur < 17 THEN 'Muda' WHEN umur BETWEEN 17 AND 55 THEN 'Dewasa' ELSE 'Tua' END AS Kategori_Umur FROM pelanggan;
+3. SELECT id, kode, nama, CASE WHEN kode = 'l002' THEN 'Speaker' WHEN kode = 'lm005' THEN 'Souvenir' ELSE 'Tidak Ada' END AS Bonus FROM produk;
+
+//3.4
+1. SELECT tmp_lahir, COUNT(*) AS jumlah_tempat_lahir FROM pelanggan GROUP BY tmp_lahir;
+2. SELECT jenis_produk, COUNT(*) AS jumlah_produk FROM produk GROUP BY jenis_produk;
+3. SELECT umur FROM pelanggan WHERE umur < (SELECT AVG(umur) FROM pelanggan);
+4. SELECT harga_jual FROM produk WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+5. SELECT kartu_id FROM pelanggan WHERE kartu_id IN (SELECT kartu_id FROM pelanggan WHERE kartu_id > 90000);
+6. SELECT MIN(harga_jual) AS harga_terendah, MAX(harga_jual) AS harga_tertinggi, AVG(harga_jual) AS harga_rata_rata FROM produk WHERE harga_jual < (SELECT AVG(harga_jual) FROM produk);
+7. SELECT diskon FROM pelanggan WHERE kartu_id IN(SELECT kartu_id FROM pelanggan WHERE diskon > 3);
