@@ -1,0 +1,44 @@
+//5.1
+1. CREATE VIEW pesanan_pelanggan_kartu
+AS SELECT pesanan.id, pesanan.tanggal, pesanan. total, pelanggan.kode, pelanggan.nama, 
+kartu.nama as nama_kartu, kartu.diskon
+FROM pesanan INNER JOIN pelanggan ON pesanan.pelanggan_id = pelanggan.id
+INNER JOIN kartu ON pelanggan.kartu_id = kartu.id;
+SELECT * FROM pesanan_pelanggan_kartu
+
+2. CREATE VIEW pembelian_produk_vendor
+AS SELECT pembelian.id, pembelian.tanggal, pembelian.nomor, pembelian.jumlah, pembelian.harga, produk.nama AS nama_produk, vendor.nama AS nama_vendor, vendor.kontak
+FROM pembelian
+LEFT JOIN produk produk ON pembelian.produk_id = produk.id
+LEFT JOIN vendor vendor ON pembelian.vendor_id = vendor.id;
+Select * FROM pembelian_produk_vendor
+
+3. CREATE VIEW pesanan_pelanggan_produk_jenisproduk_pesananitems
+SELECT *from pesanan.id AS pesanan_id, 
+    pesanan.tanggal, 
+    pesanan.total, 
+    pelanggan.nama AS nama_pelanggan, 
+    produk.kode AS kode_produk, 
+    produk.nama AS nama_produk, 
+    jenis_produk.nama AS jenis_produk, 
+    pesanan_items.qty, 
+    pesanan_items.harga
+FROM pesanan
+LEFT JOIN pelanggan ON pesanan.pelanggan_id = pelanggan.id
+LEFT JOIN pesanan_items ON pesanan.id = pesanan_items.pesanan_id
+LEFT JOIN produk ON pesanan_items.produk_id = produk.id
+LEFT JOIN jenis_produk ON produk.jenis_produk_id = jenis_produk.id;
+SELECT * FROM pesanan_pelanggan_produk_jenisproduk_pesananitems
+
+//5.2
+1. START TRANSACTION;
+2. INSERT INTO produk(kode,nama,harga_beli,harga_jual,stok,min_stok,jenis_produk_id)
+    VALUES('T001', 'Twister', 15000,15500,20,4,3),
+    ('A001','AOKA',4000,4500,11,4,3),
+    ('A001','Adem Sari',1250,1500,60,40,4);
+3. UPDATE produk SET nama='Taro' WHERE id=3;
+4. SAVEPOINT harga_jual;
+5. DELETE FROM pembayaran WHERE nokuitansi=1011;
+6. ROLLBACK TO harga_jual;
+7. UPDATE kartu SET iuran='10000' WHERE id=1;
+8. COMMIT;
